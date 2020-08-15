@@ -1,0 +1,17 @@
+.navWrapper{
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-top: 2em;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+}
+
+
+.logo{
+    font-family: 'c-bd'
+}
+
+.navItems{
+    display: flex;
+}
