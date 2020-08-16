@@ -93,12 +93,12 @@ function addActive() {
         
     } 
 
-    if (scrollY>1600) {
+    if (scrollY>1200) {
         setActiveAbout('active')
         setActiveWork('')
     } 
 
-    if(scrollY<1600) {
+    if(scrollY<1200) {
         setActiveAbout('')
     }
 
@@ -123,12 +123,12 @@ function addActiveMobile() {
         
     } 
 
-    if (scrollY>2400) {
+    if (scrollY>1600) {
         setActiveAboutMobile('active')
         setActiveWorkMobile('')
     } 
 
-    if(scrollY<2400) {
+    if(scrollY<1600) {
         setActiveAboutMobile('')
     }
 

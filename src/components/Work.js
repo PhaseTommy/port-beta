@@ -7,7 +7,7 @@ const Work = () => {
     return (
         <div className='workBG'>
             <LancerMobile/>
-            <LancerMobile/>
+
 
         </div>
     )
