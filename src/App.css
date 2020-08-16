@@ -418,11 +418,10 @@ color: #6D44E8;
   padding-top: 64px;
   margin-left: 16%;
   margin-right: 16%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 32px;
+  display: flex;
   padding-bottom: 64px;
+  grid-gap: 32px;
+
 }
 
 .lancer-mobile-wrapper{
@@ -445,14 +444,12 @@ color: #6D44E8;
   border-radius: 8px;
   position: relative;
   padding: 32px;
-  grid-column-start: 2;
-  grid-column-end: 3;
   width: 100%;
   cursor: pointer;
-
+  height: 400px;
   display: flex;
   flex-direction: column;
-  grid-row-start: 1;
+
 }
 
 
@@ -475,8 +472,9 @@ color: #6D44E8;
   position: absolute;
   bottom: 0;
   width:90%;
-  align-self: center;}
+  align-self: center;
 
+}
 .lancer-mobile-title, .lancer-web-title{
   color: white;
 }
@@ -503,12 +501,10 @@ display: block;
   }
 
   .workWrapper{
-    grid-template-rows: 1fr 1fr;
+    flex-wrap: wrap;
   }
   .lancer-mobile-wrapper{
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
+    margin-bottom: 32px;
   }
 
   .lancer-web-wrapper{
