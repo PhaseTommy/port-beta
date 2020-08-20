@@ -7,7 +7,7 @@ import reliabilityIcon from '../images/reliability-icon.svg'
 
 const Skills = () => {
     return (
-        <div className='skills-wrapper'>
+        <div id='skills' className='skills-wrapper'>
             <h1 className='quality-section-title'>what I offer.</h1>
 
                 <div className='skills-grid'>

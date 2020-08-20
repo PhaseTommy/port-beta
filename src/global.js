@@ -130,4 +130,14 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.secondaryText};
 
   }
+
+  .navItemsStyle{
+    color: ${({ theme }) => theme.primaryText};
+    
+  }
+
+  .active-mobile{
+    background: ${({ theme }) => theme.body};
+
+  }
 `

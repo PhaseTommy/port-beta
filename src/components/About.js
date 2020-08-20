@@ -2,8 +2,8 @@ import React from 'react'
 
 const About = () => {
     return (
-        <div className='about-wrapper'>
-            <h1 className='about-title'>a little about me.</h1>
+        <div  className='about-wrapper'>
+            <h1  className='about-title'>a little about me.</h1>
             <p className='about-info'>I am a young, driven individual who is constantly learning and adapting in line with the ever-evolving field of user interface design and development. My journey started approximately 6 years ago when I first started creating social media graphics for influencers and professional players inside of the gaming community.
 
 <br/><br/>I quickly outgrew this market and by the age of 18, I was commissioned for my first interface design project as a freelancer for a local design firm. This became a massive learning curve for me and ensured that I knew what I wanted to do as a career. 

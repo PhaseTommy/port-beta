@@ -10,7 +10,6 @@ import { motion } from 'framer-motion'
 import Work from './components/Work'
 import About from './components/About'
 import Skills from './components/Skills'
-import Footer from './components/Footer'
 
 function App() {
 
@@ -42,24 +41,27 @@ function App() {
 
 
   return (
-    <motion.div className="App">
+    <div className="App">
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles />
-          <motion.div  animate={{y:0}} initial={{y:-70}}  >
+          <div>
 
             <Navbar/>
-            <Hero/>
-            <Work/>
-            <About/>
-            <Skills/>
+            <Hero />
+            <Work />
+            <div id='about'>
+                <About/>
+            </div>
+
+                <Skills/>
 
 
 
 
-          </motion.div>
+          </div>
 
       </ThemeProvider>
-    </motion.div>
+    </div>
   );
 }
 

@@ -94,6 +94,19 @@ html{
   box-shadow: 0px 12px 41px 5px;
 }
 
+.navItemsStyle{
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 47px;
+  cursor: pointer;
+}
+
+.navItemsStyle:not(:last-child){
+  margin-right: 2.4em
+}
+
 .navItems>li{
   padding-left: 24px;
   padding-right: 24px;
@@ -122,8 +135,16 @@ html{
 .active{
   background: #17191C;
   color:  #6D44E8 !important;
-  padding: 36px;
-  border-radius: 5px;
+
+  border-radius:40px;
+  border: 1px solid;
+}
+
+.active-mobile{
+
+  color:  #6D44E8 !important;
+
+  border-radius:40px;
   border: 1px solid;
 }
 
@@ -420,7 +441,7 @@ color: #6D44E8;
   margin-right: 16%;
   display: flex;
   padding-bottom: 64px;
-  grid-gap: 32px;
+  grid-gap: 16px;
 
 }
 
@@ -550,6 +571,11 @@ display: block;
   margin-left: 16%;
   margin-right: 16%;
   margin-top: 10em;
+}
+
+#about{
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .about-title{

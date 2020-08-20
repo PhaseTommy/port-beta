@@ -8,10 +8,12 @@ import dark from '../images/dark.svg'
 import light from '../images/light.svg'
 import { motion } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
-import Hamburger from 'hamburger-react'
+
 import Menu from '../components/Menu'
 import Headroom from 'react-headroom'
 import { useScrollPosition, useScrollXPosition, useScrollYPosition } from 'react-use-scroll-position';
+import { Link, animateScroll as scroll } from "react-scroll";
+
 
 const Navbar = () => {
 
@@ -51,55 +53,63 @@ const Navbar = () => {
   const scrollY = useScrollYPosition();
 
 
-function addShadowLight() {
-    if(scrollY > 10){
-        setShadowLight('shadow-light')
-    }
-    else{
-        setShadowLight('')
-    }
-}
+// function addShadowLight() {
+//     if(scrollY > 10){
+//         setShadowLight('shadow-light')
+//     }
+//     else{
+//         setShadowLight('')
+//     }
+// }
 
-function addShadowDark() {
-    if(scrollY > 10){
-        setShadowDark('shadow')
-    }
-    else{
-        setShadowDark('')
-    }
-}
+// function addShadowDark() {
+//     if(scrollY > 10){
+//         setShadowDark('shadow')
+//     }
+//     else{
+//         setShadowDark('')
+//     }
+// }
 
 
-useEffect(() => {
+// useEffect(() => {
   
     
-})
+// })
 
-const [shadoLight, setShadowLight] = useState('')
+const [shadoLight, setShadowLight] = useState('navItemsStyle')
 const [shadowDark, setShadowDark] = useState('')
-const [activeHome, setActiveHome] = useState('')
-const [activeWork, setActiveWork] = useState('')
-const [activeAbout, setActiveAbout] = useState('')
+const [activeSkills, setActiveSkills] = useState('navItemsStyle')
+const [activeWork, setActiveWork] = useState('navItemsStyle')
+const [activeAbout, setActiveAbout] = useState('navItemsStyle')
 
-function addActive() { 
-    if (scrollY<400){
-        setActiveHome('active')
-        setActiveWork('')
-    } 
+function addActive() {
+    if (scrollY < 400){
+        setActiveWork('navItemsStyle')
+    }
 
     if(scrollY>400){
-        setActiveWork('active')
-        setActiveHome('')
-        
+        setActiveWork('active navItemsStyle')
+
     } 
 
+
     if (scrollY>1200) {
-        setActiveAbout('active')
-        setActiveWork('')
+        setActiveAbout('active navItemsStyle')
+        setActiveWork('navItemsStyle')
     } 
 
     if(scrollY<1200) {
-        setActiveAbout('')
+        setActiveAbout('navItemsStyle')
+    }
+
+    if (scrollY > 2000){
+        setActiveSkills('active navItemsStyle')
+        setActiveAbout('navItemsStyle')
+    }
+    
+    if (scrollY < 2000){
+        setActiveSkills('navItemsStyle')
     }
 
 
@@ -107,65 +117,49 @@ function addActive() {
 
 }
 
-const [activeHomeMobile, setActiveHomeMobile] = useState('')
+const [activeSkillsMobile, setActiveSkillsMobile] = useState('')
 const [activeWorkMobile, setActiveWorkMobile] = useState('')
 const [activeAboutMobile, setActiveAboutMobile] = useState('')
 
 function addActiveMobile() { 
-    if (scrollY<400){
-        setActiveHomeMobile('active')
-        setActiveWorkMobile('')
-    } 
+
+    if (scrollY < 400){
+        setActiveWorkMobile('navItemsStyle')
+    }
 
     if(scrollY>400){
-        setActiveWorkMobile('active')
-        setActiveHomeMobile('')
-        
+        setActiveWorkMobile('active-mobile navItemsStyle')
+
     } 
 
+
     if (scrollY>1600) {
-        setActiveAboutMobile('active')
-        setActiveWorkMobile('')
+        setActiveAboutMobile('active-mobile navItemsStyle')
+        setActiveWorkMobile('navItemsStyle')
     } 
 
     if(scrollY<1600) {
-        setActiveAboutMobile('')
+        setActiveAboutMobile('navItemsStyle')
     }
 
+    if (scrollY > 2800){
+        setActiveSkillsMobile('active-mobile navItemsStyle')
+        setActiveAboutMobile('navItemsStyle')
+    }
+    
+    if (scrollY < 2800){
+        setActiveSkillsMobile('navItemsStyle')
+    }
     
 
 }
 
-function addActiveTablet(){
-
-    if (scrollY<400){
-        setActiveHomeMobile('active')
-        setActiveWorkMobile('')
-    } 
-
-    if(scrollY>400){
-        setActiveWorkMobile('active')
-        setActiveHomeMobile('')
-        
-    } 
-
-    if (scrollY>2000) {
-        setActiveAboutMobile('active')
-        setActiveWorkMobile('')
-    } 
-
-    if(scrollY<200) {
-        setActiveAboutMobile('')
-    }
-}
 
 
 useEffect(() => {
   addActive()
     if(isTabletOrMobile){
         addActiveMobile()
-    } else if(isTablet){
-        addActiveTablet()
     }
     
     else {
@@ -173,7 +167,7 @@ useEffect(() => {
     }
 })
 
-const [isOpen, setOpen] = useState(false)
+
 
 
 
@@ -183,13 +177,16 @@ const [isOpen, setOpen] = useState(false)
 
             <Headroom className='nav' >
                 <motion.ul animate={{y:0, opacity: 1}} initial={{y:-70, opacity: 0}} className='navWrapper'>
-                    <div>
+                    <li>
                         <span className='logo'>Tommy Smith</span>
-                    </div>
+                    </li>
                    { isDesktop && <div className='navItems'>
-                        <li className={activeHome}>Home</li>
-                        <li className={activeWork}>Work</li>
-                        <li className={activeAbout}>About</li>
+
+                        <Link className={activeWork} to="work" smooth={true} offset={-200} duration={500} >Work</Link>
+
+                        <Link className={activeAbout}  to='about'   smooth={true} duration={500}  >About</Link>
+                        <Link className={activeSkills}  spy={true} duration={500}   to='skills'>Skills</Link>
+
 
                     </div> }
                     <div className='navButtons'>
@@ -206,13 +203,15 @@ const [isOpen, setOpen] = useState(false)
 
             { isTabletOrMobile && <ul className='navItemsLower'>
                     <div className='navItemsMobile'>
-                        <li className={activeHomeMobile}>Home</li>
-                        <li className={activeWorkMobile}>Work</li>
-                        <li className={activeAboutMobile}>About</li>
+                        <Link className={activeWorkMobile}  smooth={true} duration={500}   to='work'>Work</Link>
+                        <Link className={activeAboutMobile}  smooth={true} duration={500} offset={150} to='about'>About</Link>
+                        <Link className={activeSkillsMobile}  smooth={true} duration={500}   to='skills'>Skills</Link>
+
+
                         </div>
                     </ul> }
 
-                {isOpen && <Menu/>}
+
 
 
             

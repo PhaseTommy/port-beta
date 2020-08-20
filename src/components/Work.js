@@ -5,7 +5,7 @@ import '../App.css'
 
 const Work = () => {
     return (
-        <div className='workBG'>
+        <div id="work" className='workBG'>
             <LancerMobile/>
 
 
